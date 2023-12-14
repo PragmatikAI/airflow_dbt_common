@@ -1,7 +1,7 @@
 # What?
 A collection of functions that are needed to run DBT dags on airflow with cosmos
 
-#Usage
+# Usage
 Requires the following environment variables to be set:
 
 ```bash
