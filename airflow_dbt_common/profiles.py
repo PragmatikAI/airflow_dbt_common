@@ -9,15 +9,6 @@ DBT_TARGET_NAME=os.getenv('DBT_TARGET_NAME')
 SP_CONNECTION_NAME=os.getenv('SP_CONNECTION_NAME')
 
 
-snowplow_db = ProfileConfig(
-  profile_name=SP_CONNECTION_NAME,
-  target_name=DBT_TARGET_NAME,
-  profile_mapping=RedshiftUserPasswordProfileMapping(
-    conn_id=SP_CONNECTION_NAME,
-    profile_args={'schema': DEFAULT_SP_SCHEMA}
-  )
-)
-
 def _build_profile(schema):
   connection = BaseHook.get_connection(SP_CONNECTION_NAME)
   profile_template = '''
@@ -71,3 +62,31 @@ def destroy_profile_op(profile_file, dag):
     dag=dag
   )
   return op
+
+
+def build_profile_config(schema=None, 
+    connection_name=None, 
+    target_name=None
+  ):
+  schema = DEFAULT_SP_SCHEMA if schema is None else schema
+  connection_name = SP_CONNECTION_NAME if connection_name is None else connection_name
+  target_name = DBT_TARGET_NAME if target_name is None else target_name
+  return ProfileConfig(
+    profile_mapping= connection_name,
+    target_name=target_name,
+    profile_mapping=RedshiftUserPasswordProfileMapping(
+      conn_id=connection_name,
+      profile_args={'schema': schema}
+    )
+  )
+
+snowplow_db = build_profile_config()
+# ^^ builds default profile VV
+# snowplow_db = ProfileConfig(
+#   profile_name=SP_CONNECTION_NAME,
+#   target_name=DBT_TARGET_NAME,
+#   profile_mapping=RedshiftUserPasswordProfileMapping(
+#     conn_id=SP_CONNECTION_NAME,
+#     profile_args={'schema': DEFAULT_SP_SCHEMA}
+#   )
+# )
