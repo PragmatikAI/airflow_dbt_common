@@ -72,7 +72,7 @@ def build_profile_config(schema=None,
   connection_name = SP_CONNECTION_NAME if connection_name is None else connection_name
   target_name = DBT_TARGET_NAME if target_name is None else target_name
   return ProfileConfig(
-    profile_mapping= connection_name,
+    profile_name=connection_name,
     target_name=target_name,
     profile_mapping=RedshiftUserPasswordProfileMapping(
       conn_id=connection_name,
