@@ -21,7 +21,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='airflow_dbt_common',
-    version='1.0.0',
+    version='1.0.1',
     description='A collection of functions that are needed to run DBT cosmos jobs on airflow',
     long_description='A collection of functions that are needed to run DBT cosmos jobs on airflow',
     long_description_content_type='text/markdown',
