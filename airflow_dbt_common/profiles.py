@@ -36,6 +36,9 @@ def _build_profile(schema):
 
 
 def _write_temporary_profile(profile_file, schema):
+  profile_dir = "/".join(profile_file.split("/")[0:-1])
+  if not os.path.exists(profile_dir):
+    os.makedirs(profile_dir, exist_ok=True)
   with open(profile_file, 'w') as fout:
     fout.write(_build_profile(schema))
 
