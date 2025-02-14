@@ -33,10 +33,10 @@ setup(
     ],
     license='MIT',
     python_requires='>=3.6',
-    install_requires=[
-      'astronomer-cosmos==1.8.2',
-      'astro-sdk-python==1.8.0'
-    ],
+    # install_requires=[
+    #   'astronomer-cosmos==1.8.2',
+    #   'astro-sdk-python==1.8.0'
+    # ],
 
     classifiers=[
         'Programming Language :: Python :: 3',
