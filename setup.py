@@ -21,22 +21,18 @@ from setuptools import find_packages, setup
 
 setup(
     name='airflow_dbt_common',
-    version='1.0.2',
+    version='1.0.3',
     description='A collection of functions that are needed to run DBT cosmos jobs on airflow',
     long_description='A collection of functions that are needed to run DBT cosmos jobs on airflow',
     long_description_content_type='text/markdown',
-    author='Mitch Eccles <me@mitch.uk>',
-    url='https://github.com/HedinghamAI/airflow_dbt_common',
+    author='Mitch Eccles <mitch@pragmatik.ai>',
+    url='https://github.com/PragmatikAI/airflow_dbt_common',
     packages=[
         package for package in find_packages(exclude=('tests', 'docs'))
         if package.startswith('airflow_dbt_common')
     ],
     license='MIT',
     python_requires='>=3.6',
-    # install_requires=[
-    #   'astronomer-cosmos==1.8.2',
-    #   'astro-sdk-python==1.8.0'
-    # ],
 
     classifiers=[
         'Programming Language :: Python :: 3',
