@@ -21,7 +21,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='airflow_dbt_common',
-    version='1.0.1',
+    version='1.0.2',
     description='A collection of functions that are needed to run DBT cosmos jobs on airflow',
     long_description='A collection of functions that are needed to run DBT cosmos jobs on airflow',
     long_description_content_type='text/markdown',
@@ -34,8 +34,8 @@ setup(
     license='MIT',
     python_requires='>=3.6',
     install_requires=[
-      'astronomer-cosmos==1.2.5',
-      'astro-sdk-python==1.7.0'
+      'astronomer-cosmos==1.8.2',
+      'astro-sdk-python==1.8.0'
     ],
 
     classifiers=[
